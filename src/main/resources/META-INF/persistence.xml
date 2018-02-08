@@ -1,0 +1,27 @@
+<persistence version="2.1"
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence_2_1.xsd">
+    <persistence-unit name="utrwalacz" transaction-type="RESOURCE_LOCAL">
+        <class>com.igasm.pojo.Message</class>
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+        <properties>
+            <!-- mariaBD configuration
+            <property name="javax.persistence.jdbc.url" value="jdbc:mariadb://localhost:3306/msgs?useJDBCCompliantTimezoneShift=true&amp;useLegacyDatetimeCode=false&amp;serverTimezone=UTC"/>
+            <property name="javax.persistence.jdbc.driver" value="org.mariadb.jdbc.Driver" />
+            <property name="javax.persistence.jdbc.user" value="jdbc"/>
+            <property name="javax.persistence.jdbc.password" value="1234"/> -->
+            <!-- PostgreSQL configuration -->
+            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/msgs" />
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
+            <property name="javax.persistence.jdbc.user" value="jdbc"/>
+            <property name="javax.persistence.jdbc.password" value="1234"/>
+            <!-- Log the "JDBC queries" -->
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.use_sql_comments" value="true"/>
+            <!-- while used with GenerationType.AUTO makes hibernate uses autoincrement (at least for MariaDB) instead of sequence -->
+            <!-- <property name="hibernate.id.new_generator_mappings" value="false"/> -->
+        </properties>
+    </persistence-unit>
+</persistence>
